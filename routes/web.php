@@ -22,9 +22,28 @@ Route::get('/new', 'PagesController@new');
 //Todos Route
 Route::get('/todos', 'TodosController@index');
 Route::post('/create/todo', 'TodosController@store');
-Route::get('/delete/todo/{id}', [
+
+Route::get('/todo/delete/{id}', [
     'uses' => 'TodosController@delete',
     'as' => 'todo.delete'
 ]);
+
+Route::get('/todo/update/{id}', [
+    'uses' => 'TodosController@update',
+    'as' => 'todo.update'
+]);
+
+
+Route::post('/todo/save/{id}', [
+    'uses' => 'TodosController@save',
+    'as' => 'todo.save'
+]);
+
+
+Route::get('/todo/completed/{id}', [
+    'uses' => 'TodosController@completed',
+    'as' => 'todo.completed'
+]);
+
 
 
